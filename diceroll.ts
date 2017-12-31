@@ -13,6 +13,7 @@ let diewidth: number = 100;
 let diesize: string = `${ dielength }px`;
 let diebordercolor: string = '#000';
 let dieborderwidth: string = '5px';
+let diemargin: string = '10px';
 
 let diceRollS: Array<diceRoll> = [];
 
@@ -40,6 +41,7 @@ class dieRoller extends dieRoll {
         (this.div as HTMLElement).style.width = diesize;
         (this.div as HTMLElement).style.height = diesize;
         (this.div as HTMLElement).style.border = `solid ${ diebordercolor } ${ dieborderwidth }`;
+        (this.div as HTMLElement).style.marginBottom = diemargin;
     }
     getSide(side: string) : boolean {
         (this.div as HTMLElement).innerHTML = Sides[side];
@@ -53,12 +55,16 @@ for (let index: number = 0; index < 6; index++) {
     });
 }
 
+// get a random number between 0 and 5 for a die (or 1 to 6 sides on a die).
+let getRandomIntInclusive: Function = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.ceil(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 diceRollS.map((elem, index) => {
  // for each item in array: elem is the value, index is the index.
     let sidePickClass = new dieRoller(elem.div);
-    
     document.body.appendChild(elem.div);
-
-
+    sidePickClass.getSide(getRandomIntInclusive(0, 5));
 });
-
