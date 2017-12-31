@@ -55,16 +55,29 @@ for (let index: number = 0; index < 6; index++) {
     });
 }
 
-// get a random number between 0 and 5 for a die (or 1 to 6 sides on a die).
-let getRandomIntInclusive: Function = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.ceil(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+function rollAgain() {
+    // get a random number between 0 and 5 for a die (or 1 to 6 sides on a die).
+    let getRandomIntInclusive: Function = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.ceil(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    diceRollS.map((elem, index) => {
+    // for each item in array: elem is the value, index is the index.
+        let sidePickClass = new dieRoller(elem.div);
+        document.body.appendChild(elem.div);
+        sidePickClass.getSide(getRandomIntInclusive(0, 5));
+    });
 }
 
-diceRollS.map((elem, index) => {
- // for each item in array: elem is the value, index is the index.
-    let sidePickClass = new dieRoller(elem.div);
-    document.body.appendChild(elem.div);
-    sidePickClass.getSide(getRandomIntInclusive(0, 5));
-});
+var buttondiv = document.createElement('button');
+buttondiv.style.cssText = 'width:110px; font: 22px #000 Arial; background: lightblue; text-align: center; padding: 10px; margin-bottom: 15px;';
+document.body.appendChild(buttondiv).textContent = 'Roll Dice!';
+buttondiv.onclick = (event) => {
+    rollAgain();
+}
+
+rollAgain();
+
+
