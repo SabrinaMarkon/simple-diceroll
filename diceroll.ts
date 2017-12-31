@@ -44,7 +44,7 @@ class dieRoller extends dieRoll {
         (this.div as HTMLElement).style.marginBottom = diemargin;
     }
     getSide(side: string) : boolean {
-        (this.div as HTMLElement).innerHTML = Sides[side];
+        (this.div as HTMLElement).innerHTML = '<p>' + Sides[side] + '</p>';
         return true;
     }
 }

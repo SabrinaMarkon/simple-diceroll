@@ -51,7 +51,7 @@ var dieRoller = /** @class */ (function (_super) {
         return _this;
     }
     dieRoller.prototype.getSide = function (side) {
-        this.div.innerHTML = Sides[side];
+        this.div.innerHTML = '<p>' + Sides[side] + '</p>';
         return true;
     };
     // We can also create static members of a class, those that are visible on the class itself rather than on the instances
@@ -75,4 +75,3 @@ diceRollS.map(function (elem, index) {
     document.body.appendChild(elem.div);
     sidePickClass.getSide(getRandomIntInclusive(0, 5));
 });
-document.createElement('button').textContent = 'Roll Dice!';
