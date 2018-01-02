@@ -1,3 +1,10 @@
+/**
+ * @author Sabrina Markon
+ * @version 1.0
+ * January 1, 2018 Happy New Year! :)
+ * This program tosses 6 dice with a button click. I want to practice Typescript. That is all :)
+ */ 
+
 // set of values each die can have.
 enum Sides {
     One, Two, Three, Four, Five, Six
@@ -18,7 +25,7 @@ let diemargin: string = '10px';
 let diceRollS: Array<diceRoll> = [];
 
 // class to create a die.
-class dieRoll {
+class dieRoll implements diceRoll {
     div: Element;
     constructor(div: Element) {
         this.div = div;
