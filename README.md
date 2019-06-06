@@ -1,2 +1,1 @@
-# simple-diceroll
-A simple dice rolling application to practice Typescript
+# TypeScript Simple Dice Roll
